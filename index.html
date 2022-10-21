@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="circular-progress">
+            <div class="value-container">0%</div>
+        </div>
+    </div>
+
+    <script>
+
+
+
+        let progressBar = document.querySelector(".circular-progress");
+        let valueContainer = document.querySelector(".value-container");
+
+        let progressValue = 0;
+        let progressEndValue = 85;
+        let speed = 80;
+
+        let progress = setInterval(() => {
+            progressValue++;
+            valueContainer.textContent = `${progressValue}%`;
+            progressBar.style.background = `conic-gradient( #4d5bf9 ${progressValue * 3.6}deg , #cadcff ${progressValue * 3.6}deg)`;
+            if (progressValue == progressEndValue) {
+                clearInterval(progress);
+            }
+
+        
+        } , speed);
+
+    </script>
+    
+</body>
+</html>
